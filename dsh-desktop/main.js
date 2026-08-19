@@ -2465,6 +2465,10 @@ const COMPANION_PLUGINS = [
   // pnpm 安装会 hoist @deepseek-ai 核心包形成模块双实例（Symbol 冲突，
   // 插件命名空间注册失效，即 "设置命名空间不可用" 故障的根因）。
   { id: 'tool-vision', name: 'dsh-tool-vision', dir: 'dsh-tool-vision' },
+  // 默认视觉兜底（dsh-vision-fallback）：拖入图片在模型派发前本地(OCR + 像素
+  // 扫描)转成文本注入，让任何不支持视觉的模型都能稳定读图。依赖 picturereader
+  // (纯 JS) + sharp(原生，仅 webp/avif 等转 png)已加入 app 闭包(见 package.json)。
+  { id: 'vision-fallback', name: 'dsh-vision-fallback', dir: 'dsh-vision-fallback' },
   // config.path 必须随行写入：v2.0.0 只写了 id+name，而当时插件 schema 的
   // path 是 required 无默认值，全新安装校验失败拖垮整个插件树（dsh web
   // 退出码 1，应用持续闪退“启动失败”）。schema 现已带默认值，这里显式

@@ -1,0 +1,37 @@
+{
+  "name": "dsh-vision-fallback",
+  "version": "0.1.0",
+  "description": "默认视觉:拖入图片时,在模型派发前用 picturereader 本地(OCR + 像素扫描)把图片转成文本注入,让任何不支持视觉的模型都能稳定读图。",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "vendor",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "client": {
+      "platform": "web"
+    }
+  },
+  "dependencies": {
+    "picturereader": "^2.0.1",
+    "sharp": "^0.35.3"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-settings": "^0.1.0-rc.7",
+    "@deepseek-ai/schemastery": "^3.18.1",
+    "react": "^18.2.0"
+  },
+  "engines": {
+    "node": "^22.19 || >=24"
+  },
+  "license": "MIT"
+}
